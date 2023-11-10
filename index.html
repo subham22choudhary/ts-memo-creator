@@ -1,17 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memo Creator</title>
+    <title>Calculator</title>
 </head>
 
 <body>
+    <h1>Calculator</h1>
 
-    <h2>This Page is in development</h2>
 
+    <label for="input1">Enter Value 1 (in mm): </label>
+    <input type="number" id="input1" placeholder="Value 1 (mm)">
+    <br><br>
+
+    <label for="input2">Enter Value 2 (in mm): </label>
+    <input type="number" id="input2" placeholder="Value 2 (mm)">
+    <br><br>
+
+    <label for="output0">Result (in m): </label>
+    <div id="output0">First Output</div>
+    <br><br>
+
+    <label for="output">Result (in m): </label>
+    <div id="output">Result will be displayed here</div>
+    <br><br>
+
+
+
+    <label for="input4">Enter Value 4: </label>
+    <input type="number" id="input4" placeholder="Value 4">
+    <br><br>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <script>
+        function calculate() {
+
+            var value1 = parseFloat(document.getElementById("input1").value);
+            var value2 = parseFloat(document.getElementById("input2").value);
+            var value4 = parseFloat(document.getElementById("input4").value);
+
+
+            var value1InMeters = value1 / 1000;
+            var value2InMeters = value2 / 1000;
+
+
+            var result = value1InMeters * value2InMeters;
+
+
+            var finalResult = result * value4;
+
+
+            document.getElementById("output0").textContent = ((value1InMeters * value2InMeters) * 1000) + " m";
+
+
+            document.getElementById("output").textContent = (finalResult * 1000) + " m";
+        }
+    </script>
 </body>
 
 </html>
